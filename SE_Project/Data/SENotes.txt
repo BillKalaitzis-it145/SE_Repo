@@ -1,0 +1,7 @@
+ICONIX is a software development methodology which predates both the Rational Unified Process (RUP), Extreme Programming (XP) and Agile software development. Like RUP, the ICONIX process is UML Use Case driven but more lightweight than RUP. ICONIX provides more requirement and design documentation than XP, and aims to avoid analysis paralysis. The ICONIX Process uses only four UML based diagrams in a four-step process that turns use case text into working code.
+
+A principal distinction of ICONIX is its use of robustness analysis, a method for bridging the gap between analysis and design. Robustness analysis reduces the ambiguity in use case descriptions, by ensuring that they are written in the context of an accompanying domain model. This process makes the use cases much easier to design, test and estimate.
+
+The ICONIX Process is described in the book Use Case Driven Object Modeling with UML: Theory and Practice[1].
+
+Essentially, the ICONIX Process describes the core "logical" analysis and design modeling process. However, the process can be used without much tailoring on projects that follow different project management.
