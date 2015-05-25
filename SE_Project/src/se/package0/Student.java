@@ -2,12 +2,13 @@ package se.package0;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.commons.io.FileUtils;
 
-public class Student {
+public class Student implements Serializable{
 	
 	protected String Name;
 	protected String Surname;

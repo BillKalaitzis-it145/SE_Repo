@@ -1,6 +1,8 @@
 package se.package0;
 
-public class Request {
+import java.io.Serializable;
+
+public class Request  implements Serializable{
 	
 	private String Type; 
 	private String Comments; 

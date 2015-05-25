@@ -1,6 +1,8 @@
 package se.package0;
 
-public class Announcement {
+import java.io.Serializable;
+
+public class Announcement  implements Serializable{
 
 	private String Content; 
 	private String Title;

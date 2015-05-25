@@ -1,6 +1,8 @@
 package se.package0;
 
-public class Mail {
+import java.io.Serializable;
+
+public class Mail  implements Serializable{
 
 	private String Smail; 
 	private String Rmail; 

@@ -1,6 +1,8 @@
 package se.package0;
 
-public class Secretary {
+import java.io.Serializable;
+
+public class Secretary implements Serializable{
 	
 	private String Dept;
 	private String Email; 

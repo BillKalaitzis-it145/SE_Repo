@@ -1,6 +1,8 @@
 package se.package0;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course  implements Serializable {
 	
 	private String Name;
 	private Professor Teacher;

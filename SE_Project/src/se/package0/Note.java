@@ -1,8 +1,9 @@
 package se.package0;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class Note {
+public class Note  implements Serializable {
 
 	private Course OwnerCourse;
 	private File Data;

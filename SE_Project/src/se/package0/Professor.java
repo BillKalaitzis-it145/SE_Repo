@@ -1,8 +1,9 @@
 package se.package0;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Professor {
+public class Professor implements Serializable{
 	
 	private String Name;
 	private String Surname; 
