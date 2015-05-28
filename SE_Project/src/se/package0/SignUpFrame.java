@@ -3,7 +3,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
@@ -109,6 +113,44 @@ public class SignUpFrame extends JFrame{
 		SignUpButton = new JButton("Sign Up");
 		SignUpButton.setBounds(298, 236, 89, 23);
 		contentPane.add(SignUpButton);
+		
+		ButtonListener b = new ButtonListener();
+		SignUpButton.addActionListener(b);
+	}
+	
+	class ButtonListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent e) {
+			
+			String fn = FirstNameField.getText();
+			String ln = LastNameField.getText();
+			String un = UsernameField.getText();
+			String em = EmailField.getText();
+			String pw = PasswordField.getText();
+			String pwagain = PasswordAgainField.getText();
+			
+			if(!FieldsAreFilled(fn,ln,un,em,pw,pwagain))
+				new MsgFrame("Warning","Your haven't filled all the fields.");
+			else if(!pw.equals(pwagain))
+				new MsgFrame("Warning","Provided passwords don't match.");
+			else if(!TickBox.isSelected())
+				new MsgFrame("Warning","You must agree to the terms of usage.");
+			else{
+				//todo: !userExists --> SignUpUser()				
+			}
+			
+				
+			
+		}
+		
+		
+	}
+	
+	public boolean FieldsAreFilled(String a, String b, String c, String d, String e, String f){
+		if(a.isEmpty() || b.isEmpty() || c.isEmpty() || d.isEmpty() 
+				|| e.isEmpty() || f.isEmpty())
+			return false;
+		return true;
 	}
 	
 }
