@@ -161,5 +161,34 @@ public final class FileOperations {
 		
 		}
 	
+	public static void writeStudents(ArrayList<Student> obj) {		
+		
+		try{
+		FileOutputStream fos = new FileOutputStream("Data/Students.ser");
+		ObjectOutputStream oos = new ObjectOutputStream (fos);
+		oos.writeObject(obj);
+		oos.close();
+		System.out.println("Data saved!");
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static ArrayList<Student> readStudents() {
+		
+		try{
+			FileInputStream fis = new FileInputStream("Data/Students.ser");
+			ObjectInputStream ois = new ObjectInputStream (fis);
+			ArrayList<Student> pr = (ArrayList<Student>) ois.readObject();
+			ois.close();
+			return pr;
+
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return null;
+		
+	}
 		
 }
