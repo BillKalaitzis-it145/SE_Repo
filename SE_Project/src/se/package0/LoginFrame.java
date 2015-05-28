@@ -4,7 +4,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -36,8 +39,9 @@ public class LoginFrame extends JFrame{
 		WelcomeMSG.setBounds(25, 58, 396, 14);
 		contentPane.add(WelcomeMSG);
 		
-		MakIcon = new JLabel("IconHere");
-		MakIcon.setBounds(190, 11, 46, 14);
+		ImageIcon img = new ImageIcon("Data/mak1.png");
+		MakIcon = new JLabel(img);
+		MakIcon.setBounds(190, 7, 50, 50);
 		contentPane.add(MakIcon);
 		
 		Username = new JLabel("Username:");
@@ -69,7 +73,7 @@ public class LoginFrame extends JFrame{
 		
 		SignUpButton = new JButton("Sign Up");
 		SignUpButton.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		SignUpButton.setBounds(356, 238, 65, 20);
+		SignUpButton.setBounds(356, 238, 70, 20);
 		contentPane.add(SignUpButton);
 	}
 
