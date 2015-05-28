@@ -13,9 +13,9 @@ public class MsgFrame extends JFrame{
 	private JButton OKButton;
 	private JLabel Msg2;
 
-	public MsgFrame() {
+	public MsgFrame(String title,String msg) {
 		setVisible(true);
-		setTitle("Makedonia IS - add Title");
+		setTitle("Makedonia IS - " + title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 142);
 		contentPane = new JPanel();
@@ -27,7 +27,7 @@ public class MsgFrame extends JFrame{
 		OKButton.setBounds(180, 74, 89, 23);
 		contentPane.add(OKButton);
 		
-		Msg = new JLabel("Add content");
+		Msg = new JLabel("msg");
 		Msg.setBounds(57, 28, 344, 14);
 		contentPane.add(Msg);
 		
