@@ -31,7 +31,7 @@ public class GradesFrame extends JFrame{
 		contentPane.add(PassedCoursesList);
 		
 		PassedCourses = new JLabel("Passed Courses");
-		PassedCourses.setBounds(63, 14, 76, 14);
+		PassedCourses.setBounds(53, 14, 96, 14);
 		contentPane.add(PassedCourses);
 		
 		Passed = new JLabel("Passed: ");
