@@ -6,6 +6,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -75,6 +78,62 @@ public class LoginFrame extends JFrame{
 		SignUpButton.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		SignUpButton.setBounds(356, 238, 70, 20);
 		contentPane.add(SignUpButton);
+		
+		ButtonListener b = new ButtonListener();
+		SignInButton.addActionListener(b);
+		SignUpButton.addActionListener(b);
 	}
+	
+	class ButtonListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			String username;
+			String password; 
+			Student user;
+			
+			if(e.getSource()== SignInButton){
+				if(UsernameField.getText().trim().equals("") || PasswordField.getText().equals(""))
+					new MsgFrame("Warning","You haven't filled both fields.");
+				else{
+					username = UsernameField.getText();
+					password = PasswordField.getText();
+					if(!(user = isValid(username,password)).equals(null)){
+						dispose();
+						giveAccess(user);
+					}
+					else
+						new MsgFrame("Warning","Either your username or your password aren't correct.");
+				}
+			}
+			else
+				showSignUpFrame();
+		}
+		
+	}
+	
+	public Student isValid(String u, String p) {
+		
+		ArrayList<Student> st = FileOperations.readStudents();
+		if(st == null)
+			return null;
+		for(Student s:st){
+			if(s.getUsername().equals(u.trim()) && s.getPassword().equals(p))
+				return s;
+		}
+		return null;
+	}
+	
+	public void giveAccess(Student st) {
+		
+		new MainFrame(st);
+		
+	}
+	
+	public void showSignUpFrame(){
+		dispose();
+		new SignUpFrame();
+		
+	}
+	
 
 }
