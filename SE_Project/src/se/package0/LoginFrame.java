@@ -64,7 +64,7 @@ public class LoginFrame extends JFrame{
 		contentPane.add(PasswordField);
 		
 		SignupLabel = new JLabel("Not a member yet? ");
-		SignupLabel.setBounds(257, 241, 107, 14);
+		SignupLabel.setBounds(245, 241, 119, 14);
 		contentPane.add(SignupLabel);
 		
 		SignUpButton = new JButton("Sign Up");
