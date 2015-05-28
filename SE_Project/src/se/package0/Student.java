@@ -91,4 +91,66 @@ public class Student implements Serializable{
 		
 	}
 
+
+
+	public String getName() {
+		return Name;
+	}
+
+
+
+	public String getSurname() {
+		return Surname;
+	}
+
+
+
+	public String getUsername() {
+		return Username;
+	}
+
+
+
+	public String getPassword() {
+		return Password;
+	}
+
+
+
+	public String getDept() {
+		return Dept;
+	}
+
+
+
+	public String getEmail() {
+		return Email;
+	}
+
+
+
+	public String getID() {
+		return ID;
+	}
+
+
+
+	public HashMap<Course, Integer> getPassedCourses() {
+		return PassedCourses;
+	}
+
+
+
+	public ArrayList<Course> getRegisteredCourses() {
+		return RegisteredCourses;
+	}
+
+
+
+	public ArrayList<Request> getRequests() {
+		return Requests;
+	}
+	
+	
+
 }
