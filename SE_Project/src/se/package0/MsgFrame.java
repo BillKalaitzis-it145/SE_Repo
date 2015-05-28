@@ -1,5 +1,8 @@
 package se.package0;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -27,13 +30,22 @@ public class MsgFrame extends JFrame{
 		OKButton.setBounds(180, 74, 89, 23);
 		contentPane.add(OKButton);
 		
-		Msg = new JLabel("msg");
+		Msg = new JLabel(msg);
 		Msg.setBounds(57, 28, 344, 14);
 		contentPane.add(Msg);
 		
 		Msg2 = new JLabel("");
 		Msg2.setBounds(57, 46, 344, 14);
 		contentPane.add(Msg2);
+		
+		ButtonListener b = new ButtonListener();
+		OKButton.addActionListener(b);
 	}
+	
+	class ButtonListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent e) {
+			dispose();
+		}}
 	
 }
