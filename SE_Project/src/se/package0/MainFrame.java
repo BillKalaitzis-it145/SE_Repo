@@ -1,10 +1,13 @@
 package se.package0;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JButton;
 
 public class MainFrame extends JFrame{
@@ -30,8 +33,9 @@ public class MainFrame extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		MakIcon = new JLabel("IconHere");
-		MakIcon.setBounds(10, 26, 46, 14);
+		ImageIcon img = new ImageIcon("Data/mak1.png");
+		MakIcon = new JLabel(img);
+		MakIcon.setBounds(20, 15, 50,50);
 		contentPane.add(MakIcon);
 		
 		ConnectAs = new JLabel("Connect as:");
