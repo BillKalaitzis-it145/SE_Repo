@@ -69,3 +69,16 @@
 //		a.add(a2);
 //		FileOperations.writeAnnouncements(a);
 		
+		/*Populate Students*/
+//		
+//		HashMap<Course,Integer> map = new HashMap<Course,Integer>();
+//		map.put(AM, 7);
+//		map.put(DB, 5);
+//		ArrayList<Course> c = new ArrayList<Course>();
+//		c.add(LP);
+//		c.add(SE);
+//		
+//		Student S1 = new Student("Bill","Kalaitzis","it145","pass","it","it145@uom.edu.gr","it145",map,c,null);
+//		ArrayList<Student> s = new ArrayList<Student>();
+//		s.add(S1);
+//		FileOperations.writeStudents(s);
