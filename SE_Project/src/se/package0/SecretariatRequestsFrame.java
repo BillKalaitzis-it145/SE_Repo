@@ -4,7 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+import java.security.acl.Group;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
@@ -19,6 +23,7 @@ public class SecretariatRequestsFrame extends JFrame{
 	private JLabel AdditionalComments;
 	private JTextArea CommentsArea;
 	private JButton SubmitButton;
+	private ButtonGroup grp;
 
 	public SecretariatRequestsFrame() {
 		setVisible(true);
@@ -36,16 +41,21 @@ public class SecretariatRequestsFrame extends JFrame{
 		contentPane.add(RequestType);
 		
 		EducationCertificate = new JRadioButton("Education Certificate");
-		EducationCertificate.setBounds(142, 40, 125, 23);
+		EducationCertificate.setBounds(142, 40, 145, 23);
 		contentPane.add(EducationCertificate);
 		
 		TranscriptOfRecords = new JRadioButton("Transcript of records");
-		TranscriptOfRecords.setBounds(142, 65, 125, 23);
+		TranscriptOfRecords.setBounds(142, 65, 155, 23);
 		contentPane.add(TranscriptOfRecords);
 		
 		Other = new JRadioButton("Other");
 		Other.setBounds(142, 91, 109, 23);
 		contentPane.add(Other);
+		
+		grp = new ButtonGroup();
+		grp.add(EducationCertificate);
+		grp.add(TranscriptOfRecords);
+		grp.add(Other);
 		
 		AdditionalComments = new JLabel("Additional Comments");
 		AdditionalComments.setFont(new Font("Tahoma", Font.BOLD, 11));

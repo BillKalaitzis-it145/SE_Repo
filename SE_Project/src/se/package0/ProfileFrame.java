@@ -96,7 +96,7 @@ public class ProfileFrame extends JFrame{
 		contentPane.add(lblModifyYourProfile);
 		
 		SubmitChangesButton = new JButton("Submit changes");
-		SubmitChangesButton.setBounds(175, 221, 117, 23);
+		SubmitChangesButton.setBounds(169, 221, 130, 23);
 		contentPane.add(SubmitChangesButton);
 		
 		PasswordField = new JPasswordField();
