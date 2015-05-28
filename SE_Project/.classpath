@@ -7,9 +7,5 @@
 	<classpathentry kind="lib" path="/home/erevos/Software_Engineering/commons-io-2.4/commons-io-2.4-sources.jar"/>
 	<classpathentry kind="lib" path="/home/erevos/Software_Engineering/commons-io-2.4/commons-io-2.4-tests.jar"/>
 	<classpathentry kind="lib" path="/home/erevos/Software_Engineering/commons-io-2.4/commons-io-2.4-test-sources.jar"/>
-	<classpathentry kind="lib" path="/home/erevos/Desktop/jgoodies-forms-1.10/jgoodies-forms-1.10.jar"/>
-	<classpathentry kind="lib" path="/home/erevos/Desktop/jgoodies-forms-1.10/jgoodies-forms-1.10-javadoc.jar"/>
-	<classpathentry kind="lib" path="/home/erevos/Desktop/jgoodies-forms-1.10/jgoodies-forms-1.10-sources.jar"/>
-	<classpathentry kind="lib" path="/home/erevos/Desktop/jgoodies-forms-1.10/jgoodies-forms-1.10-tests.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
