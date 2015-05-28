@@ -32,7 +32,7 @@ public class CoursesFrame extends JFrame{
 		contentPane.setLayout(null);
 		
 		JLabel RegisteredCourses = new JLabel("Registered Courses");
-		RegisteredCourses.setBounds(39, 27, 103, 14);
+		RegisteredCourses.setBounds(29, 27, 123, 14);
 		contentPane.add(RegisteredCourses);
 		
 		CoursesJList = new JList();
@@ -40,7 +40,7 @@ public class CoursesFrame extends JFrame{
 		contentPane.add(CoursesJList);
 		
 		AvailableActions = new JLabel("Available Actions");
-		AvailableActions.setBounds(271, 27, 86, 14);
+		AvailableActions.setBounds(265, 27, 116, 14);
 		contentPane.add(AvailableActions);
 		
 		RCList = new JList();
@@ -51,13 +51,14 @@ public class CoursesFrame extends JFrame{
 		AAList.setBounds(255, 51, 116, 157);
 		contentPane.add(AAList);
 		
-		RegisterButton = new JButton("Register for new courses");
+		RegisterButton = new JButton("Register for course");
 		RegisterButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		RegisterButton.setBounds(21, 232, 143, 23);
+		RegisterButton.setBounds(15, 232, 143, 23);
 		contentPane.add(RegisterButton);
 		
 		CAButton = new JButton("Complete Action");
-		CAButton.setBounds(255, 232, 116, 23);
+		CAButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		CAButton.setBounds(250, 232, 126, 23);
 		contentPane.add(CAButton);
 		
 		ArrowIcon = new JLabel("ArrowIcon");
