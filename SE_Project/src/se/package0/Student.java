@@ -34,6 +34,7 @@ public class Student implements Serializable{
 		this.PassedCourses = PassedCourses;
 		this.RegisteredCourses = RegisteredCourses;
 		this.Requests = Requests;
+		this.Username = Username;
 		
 		
 	}
