@@ -1,5 +1,5 @@
 		/*Populate Professors.ser*/
-		
+//		
 //		Professor p1 = new Professor("Alexandros","Chatzigeorgiou","achat@uom.gr",null);
 //		Professor p2 = new Professor("Nikolaos","Samaras","samaras@uom.gr",null);
 //		Professor p3 = new Professor("Georgios","Evaggelidis","gevan@uom.gr",null);
@@ -70,13 +70,13 @@
 //		FileOperations.writeAnnouncements(a);
 		
 		/*Populate Students*/
-//		
+//		ArrayList<Course> courses = FileOperations.readCourses();
 //		HashMap<Course,Integer> map = new HashMap<Course,Integer>();
-//		map.put(AM, 7);
-//		map.put(DB, 5);
+//		map.put(courses.get(3), 7);
+//		map.put(courses.get(2), 5);
 //		ArrayList<Course> c = new ArrayList<Course>();
-//		c.add(LP);
-//		c.add(SE);
+//		c.add(courses.get(1));
+//		c.add(courses.get(0));
 //		
 //		Student S1 = new Student("Bill","Kalaitzis","it145","pass","it","it145@uom.edu.gr","it145",map,c,null);
 //		ArrayList<Student> s = new ArrayList<Student>();
