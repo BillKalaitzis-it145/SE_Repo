@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -136,14 +138,12 @@ public class SignUpFrame extends JFrame{
 			else if(!TickBox.isSelected())
 				new MsgFrame("Warning","You must agree to the terms of usage.");
 			else{
-				//todo: !userExists --> SignUpUser()				
-			}
-			
-				
-			
+				if(!userExists(un,em))
+					signUpUser(fn,ln,un,pw,em);
+				else
+					new MsgFrame("Warning","The username and/or email is already being used.");
+			}	
 		}
-		
-		
 	}
 	
 	public boolean FieldsAreFilled(String a, String b, String c, String d, String e, String f){
@@ -153,4 +153,31 @@ public class SignUpFrame extends JFrame{
 		return true;
 	}
 	
+	public boolean userExists(String username, String email ) {
+		
+		ArrayList<Student> st = FileOperations.readStudents();
+		for(Student s:st){
+			if(s.getEmail().equals(email) || s.Username.equals(username))
+				return true;
+		}
+		return false;		
+	}
+	
+	public void signUpUser(String fn,String ln,String un,String pw,String em){
+		
+		Student st;
+		String dept = em.substring(0, 2);
+		int index = em.indexOf('@');//todo: handle exception
+		String spofemail = em.substring(index +1 , em.length());
+		String id = em.substring(2, index);
+		
+		if(!dept.equals("it") || !spofemail.equals("uom.edu.gr")) //todo: add more 2digit codes
+			new MsgFrame("Warning","You are not using a valid academic email.");
+		else{
+			st = new Student(fn,ln,un,pw,dept,em,id,null,null,null);
+			ArrayList<Student> ar = new ArrayList<Student>();
+			ar.add(st);
+			FileOperations.writeStudents(ar);//todo: append new object - FileOpetaions
+		}
+	}
 }
