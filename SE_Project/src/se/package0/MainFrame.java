@@ -7,6 +7,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
@@ -21,9 +23,10 @@ public class MainFrame extends JFrame{
 	private JButton ProfileButton;
 	private JButton AnnouncementsButton;
 	private JButton SRButton;
+	private Student s;
 
 
-	public MainFrame() {
+	public MainFrame(Student st) {
 		setVisible(true);
 		setTitle("Makedonia IS - Main");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,12 +41,14 @@ public class MainFrame extends JFrame{
 		MakIcon.setBounds(20, 15, 50,50);
 		contentPane.add(MakIcon);
 		
+		String name = st.getName() + " " + st.getSurname();
+		String id = st.getID();
 		ConnectAs = new JLabel("Connect as:");
 		ConnectAs.setFont(new Font("Tahoma", Font.BOLD, 11));
 		ConnectAs.setBounds(222, 26, 69, 14);
 		contentPane.add(ConnectAs);
 		
-		ConnectedAsLabel = new JLabel("Add Name, ID");
+		ConnectedAsLabel = new JLabel(name + ", " + id);
 		ConnectedAsLabel.setBounds(301, 26, 131, 14);
 		contentPane.add(ConnectedAsLabel);
 		
@@ -64,13 +69,42 @@ public class MainFrame extends JFrame{
 		
 		SRButton = new JButton("Secretariat Requests");
 		SRButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		SRButton.setBounds(139, 193, 153, 23);
+		SRButton.setBounds(136, 193, 158, 23);
 		contentPane.add(SRButton);
 		
 		AnnouncementsButton = new JButton("Announcements");
 		AnnouncementsButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		AnnouncementsButton.setBounds(139, 227, 152, 23);
 		contentPane.add(AnnouncementsButton);
+		
+		s = st;
+		
+		ButtonListener b = new ButtonListener();
+		CoursesButton.addActionListener(b);
+		GradesButton.addActionListener(b);
+		ProfileButton.addActionListener(b);
+		AnnouncementsButton.addActionListener(b);
+		SRButton.addActionListener(b);
+		
+		
+	}
+	
+	class ButtonListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource() == CoursesButton)
+				new CoursesFrame(s);
+			else if(e.getSource() == GradesButton)
+				new GradesFrame(s);
+			else if(e.getSource() == ProfileButton)
+				new ProfileFrame(s);
+			else if(e.getSource() == AnnouncementsButton)
+				new AnnouncementsFrame(s);
+			else
+				new SecretariatRequestsFrame(s); //todo: maybe add a logout button 
+						
+		}
+		
 	}
 
 }
