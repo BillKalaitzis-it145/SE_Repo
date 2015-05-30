@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Mail  implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private String Smail; 
 	private String Rmail; 
 	private String Title; 

@@ -10,6 +10,7 @@ import org.apache.commons.io.FileUtils;
 
 public class Student implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	protected String Name;
 	protected String Surname;
 	protected String Username;
@@ -151,6 +152,12 @@ public class Student implements Serializable{
 	public ArrayList<Request> getRequests() {
 		return Requests;
 	}
+
+
+	public void setRegisteredCourses(ArrayList<Course> registeredCourses) {
+		RegisteredCourses = registeredCourses;
+	}
+	
 	
 	
 

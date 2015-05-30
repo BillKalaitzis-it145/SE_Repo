@@ -25,7 +25,7 @@ public class SecretariatRequestsFrame extends JFrame{
 	private JButton SubmitButton;
 	private ButtonGroup grp;
 
-	public SecretariatRequestsFrame() {
+	public SecretariatRequestsFrame(Student st) {
 		setVisible(true);
 		setTitle("Makedonia IS - Secretariat Request");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

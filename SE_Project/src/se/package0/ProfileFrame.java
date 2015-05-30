@@ -28,7 +28,7 @@ public class ProfileFrame extends JFrame{
 	private JLabel lblModifyYourProfile;
 	private JLabel Warning2;
 
-	public ProfileFrame() {
+	public ProfileFrame(Student st) {
 		setVisible(true);
 		setTitle("Makedonia IS - Profile");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

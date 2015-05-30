@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Announcement  implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private String Content; 
 	private String Title;
 	private Professor Creator; 

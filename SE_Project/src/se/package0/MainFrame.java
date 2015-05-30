@@ -88,9 +88,9 @@ public class MainFrame extends JFrame{
 		
 		
 	}
-	
+		
 	class ButtonListener implements ActionListener{
-
+		
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == CoursesButton)
 				new CoursesFrame(s);
@@ -102,7 +102,7 @@ public class MainFrame extends JFrame{
 				new AnnouncementsFrame(s);
 			else
 				new SecretariatRequestsFrame(s); //todo: maybe add a logout button 
-						
+			//todo: disable exiting main frame after closing any sub frame
 		}
 		
 	}

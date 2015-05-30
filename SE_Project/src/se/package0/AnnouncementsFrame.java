@@ -10,7 +10,7 @@ public class AnnouncementsFrame extends JFrame{
 	private JPanel contentPane;
 	private JList AnnouncementsList;
 
-	public AnnouncementsFrame() {
+	public AnnouncementsFrame(Student st) {
 		setVisible(true);
 		setTitle("Makedonia IS - Announcements");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

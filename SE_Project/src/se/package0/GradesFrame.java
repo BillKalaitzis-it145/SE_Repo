@@ -16,7 +16,7 @@ public class GradesFrame extends JFrame{
 	private JLabel PassedLabel;
 	private JLabel GPA;
 
-	public GradesFrame() {
+	public GradesFrame(Student st) {
 		setVisible(true);
 		setTitle("Makedonia IS - Grades");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

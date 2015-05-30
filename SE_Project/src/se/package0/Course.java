@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Course  implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private String Name;
 	private Professor Teacher;
 	private Note CourseNotes;
@@ -20,6 +21,15 @@ public class Course  implements Serializable {
 		
 	}
 	
+	public String getAdditionalInfo(){
+		return AdditionalInfo;
+	}
+	
+	public String getName() {
+		return Name;
+	}
+
+
 	public Note getCourseNotes() {
 		
 		return CourseNotes;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Professor implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private String Name;
 	private String Surname; 
 	private String Email; 
