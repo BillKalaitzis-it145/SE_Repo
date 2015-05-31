@@ -153,8 +153,8 @@ public class CoursesFrame extends JFrame{
 				else
 					new MsgFrame("Warning","Please select both a course and an action.");
 			}
-			else ;
-				//todo: create  RegisterToCoursesFrame();
+			else 
+				new RegisterForCourseFrame(s);
 			
 		}
 		
