@@ -25,6 +25,7 @@ public class Course  implements Serializable {
 		return AdditionalInfo;
 	}
 	
+	
 	public String getName() {
 		return Name;
 	}
