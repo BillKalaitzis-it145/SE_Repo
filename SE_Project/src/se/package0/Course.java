@@ -21,11 +21,25 @@ public class Course  implements Serializable {
 		
 	}
 	
+	public boolean equals(Object obj){
+		if(obj == null)
+			return false;
+		if(obj == this)
+			return true;
+		Course c = (Course) obj;
+		if(this.Name.equals(c.getName()))
+			return true;
+		return false;
+	}
+	
 	public String getAdditionalInfo(){
 		return AdditionalInfo;
 	}
 	
-	
+	public Professor getTeacher() {
+		return Teacher;
+	}
+
 	public String getName() {
 		return Name;
 	}

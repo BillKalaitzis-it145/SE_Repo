@@ -132,11 +132,14 @@ public final class FileOperations {
 	}
 	
 	public static void writeEmails(ArrayList<Mail> obj) {		
-		
+//		
+		ArrayList<Mail> em = FileOperations.readEmails();
+		em.addAll(obj);
+//		
 		try{
-		FileOutputStream fos = new FileOutputStream("Data/Emails.ser");
+		FileOutputStream fos = new FileOutputStream("Data/Emails.ser",false);
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
-		oos.writeObject(obj);
+		oos.writeObject(em);
 		oos.close();
 		System.out.println("Data saved!");
 		}catch (Exception e){
@@ -148,7 +151,7 @@ public final class FileOperations {
 	public static ArrayList<Mail> readEmails() {
 		
 		try{
-		FileInputStream fis = new FileInputStream("Data/EMails.ser");
+		FileInputStream fis = new FileInputStream("Data/Emails.ser");
 		ObjectInputStream ois = new ObjectInputStream (fis);
 		ArrayList<Mail> pr = (ArrayList<Mail>) ois.readObject();
 		ois.close();

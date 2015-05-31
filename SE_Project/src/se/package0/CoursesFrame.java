@@ -67,9 +67,9 @@ public class CoursesFrame extends JFrame{
 		DefaultListModel model2 = new DefaultListModel();
 		model2.addElement("Download Notes");
 		model2.addElement("Download Exercises");
-		model2.addElement("Course info");
-		model2.addElement("Contant Professor");
-		model2.addElement("Unregister from course");
+		model2.addElement("Course Info");
+		model2.addElement("Contact Professor");
+		model2.addElement("Unregister From Course");
 		
 		AAList = new JList(model2);
 		AAList.setBounds(245, 51, 136, 157);
@@ -139,16 +139,15 @@ public class CoursesFrame extends JFrame{
 						}
 					}
 					else if(action.equals("Contact Professor")){
-						;//todo: create ContactProfessorFrame class
-						//new ContanctProfessorFrame(s,currCourse);
+						new ContactProfessorFrame(s,currCourse);
 					}
 					else if(action.equals("Unregister From Course")){
-						;
-//						unregisterFromCourse(s,currCourse);
+						unregisterFromCourse(s,currCourse);
+						new MsgFrame("Operation Successful","You have successfully unregistered from course " + currCourse.getName());
 					}
 					else if(action.equals("Course Info")){
 						new MsgFrame("Course Info",currCourse.getAdditionalInfo());
-//						System.out.println("wft");
+						
 					}
 				}
 				else
@@ -165,14 +164,25 @@ public class CoursesFrame extends JFrame{
 		
 		ArrayList<Course> course = FileOperations.readCourses();
 		for(Course c:course){
-			if(c.getName().equals(name))
+			if(c.getName().equals(name)){
 				return c;
+			}
 		}
 		return null;
 	}
 	
 	public void unregisterFromCourse(Student st, Course c){
-		Student s1 = st;
-//		s1.setRegisteredCourses(); = s1.getRegisteredCourses().remove(c);
+		
+		ArrayList<Course> courses;
+		ArrayList<Student> students = FileOperations.readStudents();
+		for(Student stud:students){
+			if(stud.getEmail().equals(st.getEmail())){
+				courses = stud.getRegisteredCourses();
+				courses.remove(c);
+				stud.setRegisteredCourses(courses);
+				System.out.println(stud.getRegisteredCourses().size());
+			}
+		}
+		FileOperations.writeStudents(students);
 	}
 }

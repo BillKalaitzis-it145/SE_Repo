@@ -20,6 +20,10 @@ public class Professor implements Serializable{
 		
 	}	
 	
+	public String getName() {
+		return Name;
+	}
+
 	public String getEmail() {
 		
 		return this.Email;
