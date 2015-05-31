@@ -6,17 +6,17 @@
 //		Professor p4 = new Professor("Georgios","Stephanidis","steph@uom.gr",null);
 //		Professor p5 = new Professor("Ioannis","Mavridis","mavridis@uom.gr",null);
 //		ArrayList<Professor> o = new ArrayList<Professor>();
-//		o = FileOperations.readProfessors();
 //
-//		o.add(p5);
 //		o.add(p1);
 //		o.add(p2);
 //		o.add(p3);
 //		o.add(p4);
+//		o.add(p5);
 //		FileOperations.writeProfessors(o);
 		
-		/*Populate SENotes*/
 		
+		/*Populate SENotes*/
+//		
 //		File f1 = new File("Data/SENotes.txt");
 //		File f2 = new File("Data/LPNotes.txt");
 //		File f3 = new File("Data/DBNotes.txt");
@@ -37,7 +37,7 @@
 //		n.add(SECnotes);
 //		
 //		FileOperations.writeNotes(n);
-		
+//		
 		/*Populate Courses*/
 		
 //		ArrayList<Professor> pr = FileOperations.readProfessors();
@@ -61,8 +61,8 @@
 		/*Populate Announcements*/
 	
 //		ArrayList<Professor> pr = FileOperations.readProfessors();
-//		Announcement a1 = new Announcement("Tomorrow we won't be having a class","[Attention] Class update",pr.get(1),new Date().toString());
-//		Announcement a2 = new Announcement("Be sure to check the updated notes","[Update]New notes",pr.get(0),new Date().toString());
+//		Announcement a1 = new Announcement("Tomorrow we won't be having a class","[Attention] Class update",pr.get(1),new Date(0).toString());
+//		Announcement a2 = new Announcement("Be sure to check the updated notes","[Update]New notes",pr.get(0),new Date(0).toString());
 //		
 //		ArrayList<Announcement> a = new ArrayList<Announcement>();
 //		a.add(a1);
