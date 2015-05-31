@@ -157,6 +157,11 @@ public class Student implements Serializable{
 	public void setRegisteredCourses(ArrayList<Course> registeredCourses) {
 		RegisteredCourses = registeredCourses;
 	}
+
+
+	public void setPassword(String password) {
+		Password = password;
+	}
 	
 	
 	
