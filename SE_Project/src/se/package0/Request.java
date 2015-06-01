@@ -16,6 +16,19 @@ public class Request  implements Serializable{
 		this.Sender = Sender;
 		
 	}
+
+	public String getType() {
+		return Type;
+	}
+
+	public String getComments() {
+		return Comments;
+	}
+
+	public Student getSender() {
+		return Sender;
+	}
 	
 
+	
 }

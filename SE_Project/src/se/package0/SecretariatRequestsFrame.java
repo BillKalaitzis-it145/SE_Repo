@@ -6,7 +6,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.security.acl.Group;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
@@ -24,6 +27,7 @@ public class SecretariatRequestsFrame extends JFrame{
 	private JTextArea CommentsArea;
 	private JButton SubmitButton;
 	private ButtonGroup grp;
+	private Student s;
 
 	public SecretariatRequestsFrame(Student st) {
 		setVisible(true);
@@ -69,6 +73,43 @@ public class SecretariatRequestsFrame extends JFrame{
 		SubmitButton = new JButton("Submit");
 		SubmitButton.setBounds(183, 239, 89, 23);
 		contentPane.add(SubmitButton);
+		
+		s = st;
+		
+		ButtonListener b = new ButtonListener();
+		SubmitButton.addActionListener(b);
 	}
 	
+	class ButtonListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent e) {
+			
+			String comments = CommentsArea.getText();
+			String type;
+			if(EducationCertificate.isSelected())
+				type = EducationCertificate.getText();
+			else if(TranscriptOfRecords.isSelected())
+				type = TranscriptOfRecords.getText();
+			else
+				type = Other.getText();
+			if(!type.equals("")){
+				if(type.equals("Other") && comments.equals(""))
+					new MsgFrame("Warning","You need to add comments for your selected request");
+				else
+					createRequest(s,comments,type);
+			}
+			
+		}	
+		
+		
+	}
+	
+	public void createRequest(Student s, String comments, String type) {
+		
+		Request r = new Request(type,comments,s);
+		ArrayList<Request> ar = new ArrayList<Request>();
+		ar.add(r);
+		FileOperations.writeRequests(ar);
+		
+	}
 }

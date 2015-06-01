@@ -193,5 +193,38 @@ public final class FileOperations {
 			return null;
 		
 	}
+	
+	public static void writeRequests(ArrayList<Request> obj) {		
+	
+		ArrayList<Request> pr = FileOperations.readRequests();
+		pr.addAll(obj);
+		
+		try{
+		FileOutputStream fos = new FileOutputStream("Data/Requests.ser");
+		ObjectOutputStream oos = new ObjectOutputStream (fos);
+		oos.writeObject(pr);
+		oos.close();
+		System.out.println("Data saved!");
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+
+	}
+
+	public static ArrayList<Request> readRequests() {
+	
+		try{
+			FileInputStream fis = new FileInputStream("Data/Requests.ser");
+			ObjectInputStream ois = new ObjectInputStream (fis);
+			ArrayList<Request> pr = (ArrayList<Request>) ois.readObject();
+			ois.close();
+			return pr;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	
+	}
 		
 }
