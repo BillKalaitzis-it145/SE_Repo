@@ -1,11 +1,19 @@
 package se.package0;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.html.HTMLDocument.Iterator;
 import javax.swing.JList;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GradesFrame extends JFrame{
 
@@ -17,18 +25,30 @@ public class GradesFrame extends JFrame{
 	private JLabel GPA;
 
 	public GradesFrame(Student st) {
+		
 		setVisible(true);
 		setTitle("Makedonia IS - Grades");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 350, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		PassedCoursesList = new JList();
-		PassedCoursesList.setBounds(23, 39, 155, 185);
-		contentPane.add(PassedCoursesList);
+		ArrayList<String> info = new ArrayList<String>();
+		int sum = 0;
+		for(Map.Entry<Course, Integer> e:st.getPassedCourses().entrySet()){
+			info.add(e.getKey().getName()+" - "+e.getValue());
+			sum += e.getValue();
+		}
+		DefaultListModel model = new DefaultListModel();
+		for(String s:info)
+			model.addElement(s);
+		
+		PassedCoursesList = new JList(model);
+		JScrollPane scroll = new JScrollPane(PassedCoursesList,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scroll.setBounds(23, 39, 155, 185);
+		contentPane.add(scroll);
 		
 		PassedCourses = new JLabel("Passed Courses");
 		PassedCourses.setBounds(53, 14, 96, 14);
@@ -39,7 +59,7 @@ public class GradesFrame extends JFrame{
 		Passed.setBounds(213, 69, 46, 14);
 		contentPane.add(Passed);
 		
-		PassedLabel = new JLabel("add count");
+		PassedLabel = new JLabel(Integer.toString(info.size()));
 		PassedLabel.setBounds(272, 69, 60, 14);
 		contentPane.add(PassedLabel);
 		
@@ -48,16 +68,24 @@ public class GradesFrame extends JFrame{
 		GPA.setBounds(213, 95, 46, 14);
 		contentPane.add(GPA);
 		
-		JLabel GPALabel = new JLabel("add GPA");
+		double GPA = 0;
+		int count = info.size();
+		int remaining = 52 - count;
+		if(count != 0)
+			GPA = sum/count;
+		else
+			GPA = 0;
+			
+		JLabel GPALabel = new JLabel(Double.toString(GPA));
 		GPALabel.setBounds(249, 94, 46, 14);
 		contentPane.add(GPALabel);
 		
-		JLabel lblRemaining = new JLabel("Remaining:");
+		JLabel lblRemaining = new JLabel("Remaining: ");
 		lblRemaining.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblRemaining.setBounds(213, 120, 70, 14);
 		contentPane.add(lblRemaining);
 		
-		JLabel RemainingLabel = new JLabel("add rem");
+		JLabel RemainingLabel = new JLabel(Integer.toString(remaining));
 		RemainingLabel.setBounds(286, 120, 46, 14);
 		contentPane.add(RemainingLabel);
 	}
