@@ -59,15 +59,20 @@
 //		FileOperations.writeCourses(c);
 		
 		/*Populate Announcements*/
-	
+
+//		ArrayList<Course> c = FileOperations.readCourses();
+//		
 //		ArrayList<Professor> pr = FileOperations.readProfessors();
-//		Announcement a1 = new Announcement("Tomorrow we won't be having a class","[Attention] Class update",pr.get(1),new Date(0).toString());
-//		Announcement a2 = new Announcement("Be sure to check the updated notes","[Update]New notes",pr.get(0),new Date(0).toString());
+//		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm");
+//		Calendar cal = Calendar.getInstance();
+//		Announcement a1 = new Announcement("Tomorrow we won't be having a class","[Attention] Class update",pr.get(1),dateFormat.format(cal.getTime()),c.get(1));
+//		Announcement a2 = new Announcement("Be sure to check the updated notes","[Update]New notes",pr.get(0),dateFormat.format(cal.getTime()),c.get(0));
 //		
 //		ArrayList<Announcement> a = new ArrayList<Announcement>();
 //		a.add(a1);
 //		a.add(a2);
 //		FileOperations.writeAnnouncements(a);
+	
 		
 		/*Populate Students*/
 //		ArrayList<Course> courses = FileOperations.readCourses();
