@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
@@ -54,8 +55,9 @@ public class ContactProfessorFrame extends JFrame {
 		TitleField.setColumns(10);
 		
 		BodyArea = new JTextArea();
-		BodyArea.setBounds(38, 104, 359, 113);
-		contentPane.add(BodyArea);
+		JScrollPane sp = new JScrollPane(BodyArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		sp.setBounds(38, 104, 359, 113);
+		contentPane.add(sp);
 		
 		SendButton = new JButton("Send");
 		SendButton.setBounds(181, 228, 89, 23);

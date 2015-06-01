@@ -8,6 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
 
 import org.apache.commons.io.FileUtils;
 
@@ -53,8 +54,9 @@ public class CoursesFrame extends JFrame{
 			model.addElement(c.getName());
 		
 		CoursesJList = new JList(model);
-		CoursesJList.setBounds(27, 51, 136, 157);
-		contentPane.add(CoursesJList);
+		JScrollPane sp = new JScrollPane(CoursesJList,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		sp.setBounds(27, 51, 136, 157);
+		contentPane.add(sp);
 		
 		AvailableActions = new JLabel("Available Actions");
 		AvailableActions.setBounds(265, 27, 116, 14);

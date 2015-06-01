@@ -13,6 +13,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
 
 public class RegisterForCourseFrame extends JFrame {
 
@@ -40,8 +41,9 @@ public class RegisterForCourseFrame extends JFrame {
 		}
 		
 		CourseList = new JList(model);
-		CourseList.setBounds(69, 48, 159, 175);
-		contentPane.add(CourseList);
+		JScrollPane sp = new JScrollPane(CourseList,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		sp.setBounds(69, 48, 159, 175);
+		contentPane.add(sp);
 		
 		JLabel lblAvailableCourses = new JLabel("Available Courses");
 		lblAvailableCourses.setBounds(106, 23, 109, 14);

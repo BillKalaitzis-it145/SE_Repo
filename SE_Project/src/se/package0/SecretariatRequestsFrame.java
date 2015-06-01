@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
@@ -67,8 +68,9 @@ public class SecretariatRequestsFrame extends JFrame{
 		contentPane.add(AdditionalComments);
 		
 		CommentsArea = new JTextArea();
-		CommentsArea.setBounds(103, 149, 246, 79);
-		contentPane.add(CommentsArea);
+		JScrollPane sp = new JScrollPane(CommentsArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		sp.setBounds(103, 149, 246, 79);
+		contentPane.add(sp);
 		
 		SubmitButton = new JButton("Submit");
 		SubmitButton.setBounds(183, 239, 89, 23);
