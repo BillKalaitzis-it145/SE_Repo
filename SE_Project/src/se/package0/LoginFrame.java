@@ -97,12 +97,13 @@ public class LoginFrame extends JFrame{
 				else{
 					username = UsernameField.getText();
 					password = PasswordField.getText();
-					if(!(user = isValid(username,password)).equals(null)){
+					user = isValid(username,password);
+					if(user != null){
 						dispose();
 						giveAccess(user);
 					}
 					else
-						new MsgFrame("Warning","Either your username or your password aren't correct.");
+						new MsgFrame("Warning","Either your username or your password isn't correct.");
 				}
 			}
 			else
