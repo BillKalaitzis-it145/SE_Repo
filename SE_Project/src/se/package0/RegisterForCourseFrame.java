@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -35,8 +36,14 @@ public class RegisterForCourseFrame extends JFrame {
 		
 		DefaultListModel model = new DefaultListModel();
 		ArrayList<Course> course = FileOperations.readCourses();
+		
+		ArrayList<Course> passedc = new ArrayList<Course>();
+		
+		for(Map.Entry<Course, Integer> e:st.getPassedCourses().entrySet())
+			passedc.add(e.getKey());
+		
 		for(Course c:course){
-			if(!st.getRegisteredCourses().contains(c))
+			if(!st.getRegisteredCourses().contains(c) && !passedc.contains(c))
 				model.addElement(c.getName());
 		}
 		
