@@ -114,28 +114,49 @@ public class CoursesFrame extends JFrame{
 					currCourse = identifyCourse(courseName);
 					
 					if (action.equals("Download Notes") || action.equals("Download Exercises")) {
-						JFileChooser fileChooser = new JFileChooser();
-						fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-						fileChooser.showSaveDialog(null);
-						File  f = fileChooser.getSelectedFile();
-						if(action.equals("Download Notes")){
-							if(currCourse.getCourseNotes().equals(null)){
-								new MsgFrame("Not found","There are not available notes for the selected course.");
-								return;//todo: test it out
-							}
-							source = new File(currCourse.getCourseNotes().getAbsPath());
-							dest = new File(f.getAbsolutePath()+"\\"+courseName.trim()+" Notes.txt");
-						}
+						if(action.equals("Download Notes") && currCourse.getCourseNotes() == null)
+							new MsgFrame("Not found","There are not available notes for the selected course.");
+						else if(action.equals("Download Exercises") && currCourse.getCourseExercises() == null)
+							new MsgFrame("Not Found","There are not available notes for the selected course.");
 						else{
-							if(currCourse.getCourseExercises().equals(null))
-								new MsgFrame("Not Found","There are not available notes for the selected course.");
-							dest = new File(f.getAbsolutePath()+courseName+" Exercises.txt");
-							source =  new File(currCourse.getCourseExercises().getAbsPath());
-						}
-						try {
-							FileUtils.copyFile(source, dest);
-						} catch (IOException e1) {
-							e1.printStackTrace();
+							
+							JFileChooser fileChooser = new JFileChooser();
+							fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+							fileChooser.showSaveDialog(null);
+							File  f = fileChooser.getSelectedFile();
+							if(action.equals("Download Notes")){
+								if(currCourse.getCourseNotes() == null){
+									new MsgFrame("Not found","There are not available notes for the selected course.");
+								}
+								else{
+									
+									if(f!=null){
+										source = new File(currCourse.getCourseNotes().getAbsPath());
+										dest = new File(f.getAbsolutePath()+"\\"+courseName.trim()+" Notes.txt");
+										try {
+											FileUtils.copyFile(source, dest);
+										} catch (IOException e1) {
+											e1.printStackTrace();
+										}
+										
+									}
+								}
+							}
+							else{
+								if(currCourse.getCourseExercises() == null)
+									new MsgFrame("Not Found","There are not available notes for the selected course.");
+								else{
+									if(f!=null){
+										dest = new File(f.getAbsolutePath()+courseName+" Exercises.txt");
+										source =  new File(currCourse.getCourseExercises().getAbsPath());
+										try {
+											FileUtils.copyFile(source, dest);
+										} catch (IOException e1) {
+											e1.printStackTrace();
+										}
+									}
+								}
+							}
 						}
 					}
 					else if(action.equals("Contact Professor")){
