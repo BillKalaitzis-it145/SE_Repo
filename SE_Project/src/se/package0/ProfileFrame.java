@@ -36,6 +36,7 @@ public class ProfileFrame extends JFrame{
 	
 	public ProfileFrame(Student st) {
 		setVisible(true);
+		setResizable(false);
 		setTitle("Makedonia IS - Profile");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

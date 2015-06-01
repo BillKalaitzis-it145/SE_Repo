@@ -48,6 +48,9 @@
 //		Course DB = new Course("Databases", pr.get(2),n.get(2),null,"No description available");
 //		Course AM = new Course("Applied Maths",pr.get(3),n.get(3),null,"We are going to learn mathematics!");
 //		Course SC = new Course("Security",pr.get(4),n.get(4),null,"No description available");
+//		Course SC2 = new Course("Security II",pr.get(4),null,null,"This course is all about exploiting vulnerabilities");
+//		Course PP = new Course("Procedural Programming",pr.get(0),null,null,"Let's learn some C");
+//		Course DM = new Course("Descrete Maths",pr.get(3),null,null,"This course is an intro to descrete maths");
 //		
 //		ArrayList<Course> c = new ArrayList<Course>();
 //		c.add(SE);

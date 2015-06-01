@@ -26,6 +26,7 @@ public class RegisterForCourseFrame extends JFrame {
 	
 	public RegisterForCourseFrame(Student st) {
 		setVisible(true);
+		setResizable(false);
 		setTitle("Makedonia IS - Register");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 317, 300);

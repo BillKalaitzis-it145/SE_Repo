@@ -27,6 +27,7 @@ public class ContactProfessorFrame extends JFrame {
 	
 	public ContactProfessorFrame(Student st,Course c) {
 		setVisible(true);
+		setResizable(false);
 		setTitle("Makedonia IS - Contact Professor");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

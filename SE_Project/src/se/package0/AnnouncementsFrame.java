@@ -16,6 +16,7 @@ public class AnnouncementsFrame extends JFrame{
 
 	public AnnouncementsFrame(Student st) {
 		setVisible(true);
+		setResizable(false);
 		setTitle("Makedonia IS - Announcements");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 400);

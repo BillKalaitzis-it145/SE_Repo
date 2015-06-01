@@ -27,6 +27,7 @@ public class GradesFrame extends JFrame{
 	public GradesFrame(Student st) {
 		
 		setVisible(true);
+		setResizable(false);
 		setTitle("Makedonia IS - Grades");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 350, 300);

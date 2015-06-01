@@ -29,13 +29,13 @@ public class CoursesFrame extends JFrame{
 	private JList AAList;
 	private JButton RegisterButton;
 	private JButton CAButton;
-	private JLabel ArrowIcon;
 	private JList RCList;
 	private Student s;
 
 
 	public CoursesFrame(Student st) {
 		setVisible(true);
+		setResizable(false);
 		setTitle("Makedonia IS - Courses");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 416, 300);
@@ -87,9 +87,6 @@ public class CoursesFrame extends JFrame{
 		CAButton.setBounds(250, 232, 126, 23);
 		contentPane.add(CAButton);
 		
-		ArrowIcon = new JLabel("ArrowIcon");
-		ArrowIcon.setBounds(172, 116, 46, 14);
-		contentPane.add(ArrowIcon);
 		
 		s = st;
 		

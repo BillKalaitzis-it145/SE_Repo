@@ -32,6 +32,7 @@ public class SecretariatRequestsFrame extends JFrame{
 
 	public SecretariatRequestsFrame(Student st) {
 		setVisible(true);
+		setResizable(false);
 		setTitle("Makedonia IS - Secretariat Request");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

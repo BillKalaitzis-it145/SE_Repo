@@ -72,11 +72,14 @@ public final class FileOperations {
 	}
 	
 	public static void writeCourses(ArrayList<Course> obj) {		
+		
+		ArrayList<Course> c = FileOperations.readCourses();
+		c.addAll(obj);
 	
 		try{
 		FileOutputStream fos = new FileOutputStream("Data/Courses.ser");
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
-		oos.writeObject(obj);
+		oos.writeObject(c);
 		oos.close();
 		System.out.println("Data saved!");
 		}catch (Exception e){
