@@ -18,7 +18,6 @@ public final class FileOperations {
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
 		oos.writeObject(obj);
 		oos.close();
-		System.out.println("Data saved!");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -48,7 +47,6 @@ public final class FileOperations {
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
 		oos.writeObject(obj);
 		oos.close();
-		System.out.println("Data saved!");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -81,7 +79,6 @@ public final class FileOperations {
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
 		oos.writeObject(c);
 		oos.close();
-		System.out.println("Data saved!");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -111,7 +108,6 @@ public final class FileOperations {
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
 		oos.writeObject(obj);
 		oos.close();
-		System.out.println("Data saved!");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -135,16 +131,15 @@ public final class FileOperations {
 	}
 	
 	public static void writeEmails(ArrayList<Mail> obj) {		
-//		
+		
 		ArrayList<Mail> em = FileOperations.readEmails();
 		em.addAll(obj);
-//		
+		
 		try{
 		FileOutputStream fos = new FileOutputStream("Data/Emails.ser",false);
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
 		oos.writeObject(em);
 		oos.close();
-		System.out.println("Data saved!");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -174,7 +169,6 @@ public final class FileOperations {
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
 		oos.writeObject(obj);
 		oos.close();
-		System.out.println("Data saved!");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -207,7 +201,6 @@ public final class FileOperations {
 		ObjectOutputStream oos = new ObjectOutputStream (fos);
 		oos.writeObject(pr);
 		oos.close();
-		System.out.println("Data saved!");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
