@@ -31,7 +31,7 @@ public class CoursesFrame extends JFrame{
 	private JButton CAButton;
 	private JList RCList;
 	private Student s;
-
+	private CoursesFrame cf = this;
 
 	public CoursesFrame(Student st) {
 		setVisible(true);
@@ -62,10 +62,6 @@ public class CoursesFrame extends JFrame{
 		AvailableActions.setBounds(265, 27, 116, 14);
 		contentPane.add(AvailableActions);
 		
-//		RCList = new JList();
-//		RCList.setBounds(255, 51, 1, 1);
-//		contentPane.add(RCList);
-		
 		DefaultListModel model2 = new DefaultListModel();
 		model2.addElement("Download Notes");
 		model2.addElement("Download Exercises");
@@ -74,8 +70,9 @@ public class CoursesFrame extends JFrame{
 		model2.addElement("Unregister From Course");
 		
 		AAList = new JList(model2);
-		AAList.setBounds(245, 51, 136, 157);
-		contentPane.add(AAList);
+		JScrollPane sp2 = new JScrollPane(AAList,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		sp2.setBounds(245, 51, 146, 157);
+		contentPane.add(sp2);
 		
 		RegisterButton = new JButton("Register for course");
 		RegisterButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
@@ -163,7 +160,6 @@ public class CoursesFrame extends JFrame{
 					}
 					else if(action.equals("Unregister From Course")){
 						unregisterFromCourse(s,currCourse);
-						new MsgFrame("Operation Successful","You have successfully unregistered from course " + currCourse.getName());
 					}
 					else if(action.equals("Course Info")){
 						new MsgFrame("Course Info",currCourse.getAdditionalInfo());
@@ -174,7 +170,7 @@ public class CoursesFrame extends JFrame{
 					new MsgFrame("Warning","Please select both a course and an action.");
 			}
 			else 
-				new RegisterForCourseFrame(s);
+				new RegisterForCourseFrame(s,cf);
 			
 		}
 		
@@ -200,9 +196,14 @@ public class CoursesFrame extends JFrame{
 				courses = stud.getRegisteredCourses();
 				courses.remove(c);
 				stud.setRegisteredCourses(courses);
-				System.out.println(stud.getRegisteredCourses().size());
 			}
 		}
 		FileOperations.writeStudents(students);
+		dispose();
+		ArrayList<Student> s1 = FileOperations.readStudents();
+		for(Student s:s1){
+			if(s.equals(st))
+				new CoursesFrame(s);
+		}
 	}
 }

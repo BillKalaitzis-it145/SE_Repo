@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 
@@ -93,16 +94,24 @@ public class MainFrame extends JFrame{
 	class ButtonListener implements ActionListener{
 		
 		public void actionPerformed(ActionEvent e) {
+			
+			ArrayList<Student> s1 = FileOperations.readStudents();
+			Student student = null;
+			for(Student stud:s1){
+				if(stud.equals(s))
+					student  = stud;
+			}
+			
 			if(e.getSource() == CoursesButton)
-				new CoursesFrame(s);
+				new CoursesFrame(student);
 			else if(e.getSource() == GradesButton)
-				new GradesFrame(s);
+				new GradesFrame(student);
 			else if(e.getSource() == ProfileButton)
-				new ProfileFrame(s);
+				new ProfileFrame(student);
 			else if(e.getSource() == AnnouncementsButton)
-				new AnnouncementsFrame(s);
+				new AnnouncementsFrame(student);
 			else
-				new SecretariatRequestsFrame(s); //todo: maybe add a logout button 
+				new SecretariatRequestsFrame(student); //todo: maybe add a logout button 
 			//todo: disable exiting main frame after closing any sub frame
 		}
 		

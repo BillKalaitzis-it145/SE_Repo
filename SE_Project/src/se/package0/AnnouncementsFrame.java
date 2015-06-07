@@ -30,11 +30,14 @@ public class AnnouncementsFrame extends JFrame{
 		String tmp = null;
 		String tmp2 = null;
 		for(Announcement an:a){
-			tmp = an.getTimeStamp()+ " : " + an.getCourse().getName() +" - "+ an.getCreator().getName().substring(0, 1)+"." + an.getCreator().getSurname() + " ~ " + an.getTitle();
-			tmp2 = "    " + an.getContent();
+			if(st.getRegisteredCourses().contains(an.getCourse())){
+				tmp = an.getTimeStamp()+ " : " + an.getCourse().getName() +" - "+ an.getCreator().getName().substring(0, 1)+"." + an.getCreator().getSurname() + " ~ " + an.getTitle();
+				tmp2 = "    " + an.getContent();
+				
+				model.addElement(tmp);
+				model.addElement(tmp2);
+			}
 			
-			model.addElement(tmp);
-			model.addElement(tmp2);
 		}
 		
 		

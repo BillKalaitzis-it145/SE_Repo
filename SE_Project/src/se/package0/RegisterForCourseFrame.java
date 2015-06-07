@@ -23,10 +23,12 @@ public class RegisterForCourseFrame extends JFrame {
 	private JButton CourseInfoButton;
 	private JButton btnRegister;
 	private Student s;
+	private CoursesFrame cf1;
 	
-	public RegisterForCourseFrame(Student st) {
+	public RegisterForCourseFrame(Student st,CoursesFrame cf) {
 		setVisible(true);
 		setResizable(false);
+		setAlwaysOnTop(true);
 		setTitle("Makedonia IS - Register");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 317, 300);
@@ -66,6 +68,7 @@ public class RegisterForCourseFrame extends JFrame {
 		contentPane.add(CourseInfoButton);
 		
 		s = st;
+		cf1 = cf;
 		 
 		ButtonListener b = new ButtonListener();
 		CourseInfoButton.addActionListener(b);
@@ -89,11 +92,19 @@ public class RegisterForCourseFrame extends JFrame {
 					if(stud.getEmail().equals(s.getEmail())){
 						courses = stud.getRegisteredCourses();
 						courses.add(currCourse);
-						stud.setRegisteredCourses(courses);
-						System.out.println(stud.getRegisteredCourses().size());
+						stud.setRegisteredCourses(courses);					}
+				}
+				FileOperations.writeStudents(students);
+				cf1.dispose();
+				dispose();
+				ArrayList<Student> s1 = FileOperations.readStudents();
+				for(Student stud:s1){
+					if(stud.equals(s)){
+						CoursesFrame f = new CoursesFrame(stud);
+						new RegisterForCourseFrame(stud,f);
 					}
 				}
-				FileOperations.writeStudents(students);				
+				
 			}
 			else{
 				if(!(courseName == null))

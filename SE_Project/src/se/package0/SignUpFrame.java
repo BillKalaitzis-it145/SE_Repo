@@ -174,10 +174,18 @@ public class SignUpFrame extends JFrame{
 		if(!dept.equals("it") || !spofemail.equals("uom.edu.gr")) //todo: add more 2digit codes
 			new MsgFrame("Warning","You are not using a valid academic email.");
 		else{
-			st = new Student(fn,ln,un,pw,dept,em,id,null,null,null);
+			
+			ArrayList<Course> pc = new ArrayList<Course>();
+			HashMap<Course,Integer> map = new HashMap<Course,Integer>();
+			ArrayList<Request> a = new ArrayList<Request>();
+			
+			st = new Student(fn,ln,un,pw,dept,em,id,map,pc,a);
 			ArrayList<Student> ar = new ArrayList<Student>();
 			ar.add(st);
 			FileOperations.writeStudents(ar);//todo: append new object - FileOpetaions
+			dispose();
+			new LoginFrame();
+			new MsgFrame("Success","You have successfully registered on the system.");
 		}
 	}
 }

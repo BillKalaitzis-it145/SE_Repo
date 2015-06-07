@@ -40,7 +40,22 @@ public class Student implements Serializable{
 		
 	}
 	
-	
+	public boolean equals(Object o){
+		
+		if(o == null)
+			return false;
+		else if(o == this)
+			return true;
+		else if(!(o instanceof Student))
+			return false;
+		else{
+			Student s = (Student) o;
+			if(s.getEmail().equals(this.Email))
+				return true;
+			return false;
+		}
+		
+	}
 	
 	public void registerToCourse(Course course) {
 		

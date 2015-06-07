@@ -87,17 +87,17 @@ public final class FileOperations {
 
 	public static ArrayList<Course> readCourses() {
 	
-	try{
-	FileInputStream fis = new FileInputStream("Data/Courses.ser");
-	ObjectInputStream ois = new ObjectInputStream (fis);
-	ArrayList<Course> pr = (ArrayList<Course>) ois.readObject();
-	ois.close();
-	return pr;
-
-	}catch(Exception e){
-		e.printStackTrace();
-	}
-	return null;
+		try{
+			FileInputStream fis = new FileInputStream("Data/Courses.ser");
+			ObjectInputStream ois = new ObjectInputStream (fis);
+			ArrayList<Course> pr = (ArrayList<Course>) ois.readObject();
+			ois.close();
+			return pr;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	
 	}
 	
@@ -116,17 +116,17 @@ public final class FileOperations {
 	
 	public static ArrayList<Announcement> readAnnouncements() {
 		
-	try{
-	FileInputStream fis = new FileInputStream("Data/Announcements.ser");
-	ObjectInputStream ois = new ObjectInputStream (fis);
-	ArrayList<Announcement> pr = (ArrayList<Announcement>) ois.readObject();
-	ois.close();
-	return pr;
-
-	}catch(Exception e){
-		e.printStackTrace();
-	}
-	return null;
+		try{
+			FileInputStream fis = new FileInputStream("Data/Announcements.ser");
+			ObjectInputStream ois = new ObjectInputStream (fis);
+			ArrayList<Announcement> pr = (ArrayList<Announcement>) ois.readObject();
+			ois.close();
+			return pr;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	
 	}
 	
@@ -162,7 +162,13 @@ public final class FileOperations {
 		
 		}
 	
-	public static void writeStudents(ArrayList<Student> obj) {		
+	public static void writeStudents(ArrayList<Student> obj) {	
+		
+		ArrayList<Student> st = FileOperations.readStudents();
+		for(Student s:st){
+			if(!obj.contains(s))
+				obj.add(s);
+		}
 		
 		try{
 		FileOutputStream fos = new FileOutputStream("Data/Students.ser");
